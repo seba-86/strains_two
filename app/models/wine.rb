@@ -4,4 +4,6 @@ class Wine < ApplicationRecord
 
     validates_presence_of :name, on: :create, message: "can't be blank"
     accepts_nested_attributes_for :assemblies, allow_destroy: true
+
+    scope :asc, -> {order(name: :asc)}
 end

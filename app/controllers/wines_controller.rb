@@ -3,7 +3,7 @@ class WinesController < ApplicationController
 
   # GET /wines
   def index
-    @wines = Wine.all
+    @wines = Wine.asc.includes(:strains)
   end
 
   # GET /wines/1
@@ -26,7 +26,7 @@ class WinesController < ApplicationController
     @wine = Wine.new(wine_params)
 
     if @wine.save
-      redirect_to @wine, notice: 'Wine was successfully created.'
+      redirect_to root_path, notice: 'Wine was successfully created.'
     else
       render :new
     end

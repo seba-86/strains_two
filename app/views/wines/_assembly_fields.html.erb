@@ -1,0 +1,5 @@
+<div class="nested-fields">
+    <%= f.input :strain_id, as: :select, collection: Strain.all %>
+    <%= f.input :percentage %>
+    <%= link_to_remove_association "remove cepa", f %>
+</div>

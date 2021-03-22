@@ -27,10 +27,10 @@ end
 ['oe_andres', 'oe_javier', 'oe_patricia', 'oe_catalina'].each do |name|
     Oenologist.create name: name, 
     age: rand(18..65),
-    country: ['chile', 'peru','españa','francia'].sample, 
-    writer: ['true','false'].sample, 
-    viewer: ['true','false'].sample,
-    editor: ['true','false'].sample
+    country: ['chile', 'peru','españa','francia'].sample
+    # writer: ['true','false'].sample, 
+    # viewer: ['true','false'].sample,
+    # editor: ['true','false'].sample
 end
         
     puts 'Oenologist has been created'

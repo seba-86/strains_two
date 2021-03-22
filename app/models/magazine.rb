@@ -1,3 +1,4 @@
 class Magazine < ApplicationRecord
-    has_and_belongs_to_many :oenologist, join_table: "magazines_oenologists", foreign_key: "oenologist_id"
+    has_many :works
+    has_many :oeanologists, through: :works
 end

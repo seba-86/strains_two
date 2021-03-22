@@ -7,9 +7,17 @@
     <%= f.input :name %>
     <%= f.input :age %>
     <%= f.input :country %>
-    <%= f.input :writer %>
-    <%= f.input :viewer %>
-    <%= f.input :editor %>
+    
+  </div>
+
+  <h3>Work</h3>
+  <div id="works">
+    <%= f.simple_fields_for :works do |work| %>
+    <%= render 'works_fields', f, work %>
+  <%end %>
+  <div class="link">
+    <%= link_to_add_association 'Add magazines and job', f, :works, partial: 'works_fields'  %>
+  </div>
   </div>
 
   <div class="form-actions">

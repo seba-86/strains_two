@@ -1,0 +1,7 @@
+<div class="nested-fields">
+    <%= f.input :magazine_id, as: :select, collection: Magazine.all %>
+    <%= f.input :writer%>
+    <%= f.input :editor %>
+    <%= f.input :viewer %>
+    <%= link_to_remove_association 'remove oenologist', f %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_220532) do
+ActiveRecord::Schema.define(version: 2021_03_22_222019) do
 
   create_table "assemblies", force: :cascade do |t|
     t.integer "percentage"
@@ -72,8 +72,22 @@ ActiveRecord::Schema.define(version: 2021_03_22_220532) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "works", force: :cascade do |t|
+    t.boolean "writer"
+    t.boolean "viewer"
+    t.boolean "editor"
+    t.integer "oenologist_id", null: false
+    t.integer "magazine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["magazine_id"], name: "index_works_on_magazine_id"
+    t.index ["oenologist_id"], name: "index_works_on_oenologist_id"
+  end
+
   add_foreign_key "assemblies", "strains"
   add_foreign_key "assemblies", "wines"
   add_foreign_key "evaluations", "oenologists"
   add_foreign_key "evaluations", "wines"
+  add_foreign_key "works", "magazines"
+  add_foreign_key "works", "oenologists"
 end

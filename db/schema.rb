@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_203702) do
+ActiveRecord::Schema.define(version: 2021_03_22_005535) do
 
   create_table "assemblies", force: :cascade do |t|
     t.integer "percentage"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 2021_03_21_203702) do
     t.index ["wine_id"], name: "index_assemblies_on_wine_id"
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "evaluations", force: :cascade do |t|
     t.integer "note_oenologist"
     t.integer "wine_id", null: false
     t.integer "oenologist_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["oenologist_id"], name: "index_notes_on_oenologist_id"
-    t.index ["wine_id"], name: "index_notes_on_wine_id"
+    t.index ["oenologist_id"], name: "index_evaluations_on_oenologist_id"
+    t.index ["wine_id"], name: "index_evaluations_on_wine_id"
   end
 
   create_table "oenologists", force: :cascade do |t|
@@ -71,6 +71,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_203702) do
 
   add_foreign_key "assemblies", "strains"
   add_foreign_key "assemblies", "wines"
-  add_foreign_key "notes", "oenologists"
-  add_foreign_key "notes", "wines"
+  add_foreign_key "evaluations", "oenologists"
+  add_foreign_key "evaluations", "wines"
 end

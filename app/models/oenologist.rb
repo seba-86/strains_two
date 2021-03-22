@@ -1,4 +1,4 @@
 class Oenologist < ApplicationRecord
-    has_many :notes
-    has_many :wines, through: :notes
+    has_many :evaluations
+    has_many :wines, through: :evaluations
 end

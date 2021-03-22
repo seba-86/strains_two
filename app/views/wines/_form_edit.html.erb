@@ -19,13 +19,13 @@
 </div>
 
 <h3>Notes</h3>
-<div id="notes">
-    <%= f.simple_fields_for :notes do |note| %>
-    <%= render 'oenologist_fields', f: note %>
+<div id="evaluations">
+    <%= f.simple_fields_for :evaluations do |evaluation| %>
+    <%= render 'evaluation_fields', f: evaluation %>
     <% end %>
 
     <div class="links">
-        <%= link_to_add_association 'Agregar Note', f, :note %>
+        <%= link_to_add_association 'Agregar Note', f, :evaluations, partial: 'evaluation_fields' %>
     </div>
 </div>
 

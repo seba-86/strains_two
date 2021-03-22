@@ -7,7 +7,8 @@
     <tr>
       <th>Name</th>
       <th>Strains</th>
-      <th>percentage %</th>
+      <th>Percentage %</th>
+      <th>Note Oenologist</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,6 +29,13 @@
           <% wine.assemblies.each do |assem| %>
           <li style="list-style: none;">(<%= assem.percentage%>%)</li>
           <%end %>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <% wine.notes.each do |note| %>
+          <li> <%= note.note_oenologist %></li>
+        <% end %>
         </ul>
       </td>
       <% if user_signed_in? && current_user.admin? %>

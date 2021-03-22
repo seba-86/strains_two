@@ -1,0 +1,5 @@
+<div class="nested-fields">
+    <%= f.input :oenologist_id, as: :select, collection: Oenologist.all %>
+    <%= f.input :oenologist_note %>
+    <%= link_to_remove_association "remove cepa", f %>
+</div>

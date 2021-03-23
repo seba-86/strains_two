@@ -1,6 +1,6 @@
-class CreateWorks < ActiveRecord::Migration[6.1]
+class CreateJobs < ActiveRecord::Migration[6.1]
   def change
-    create_table :works do |t|
+    create_table :jobs do |t|
       t.boolean :writer
       t.boolean :viewer
       t.boolean :editor

@@ -4,6 +4,8 @@ class WinesController < ApplicationController
   # GET /wines
   def index
     @wines = Wine.asc.includes(:strains)
+    @magazines = Magazine.all
+  
   end
 
   # GET /wines/1

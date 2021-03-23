@@ -8,9 +8,7 @@
       <th>Name</th>
       <th>Age</th>
       <th>Country</th>
-      <th>Writer</th>
-      <th>Viewer</th>
-      <th>Editor</th>
+      <th>Work</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +19,11 @@
         <td><%= oenologist.name %></td>
         <td><%= oenologist.age %></td>
         <td><%= oenologist.country %></td>
+        <td><ul>
+          <% oenologist.jobs.each do |job| %>
+          <li><%= job.magazine.name %></li>
+        <%end %>
+        </ul></td>
         <td><%= link_to 'Show', oenologist %></td>
         <td><%= link_to 'Edit', edit_oenologist_path(oenologist) %></td>
         <td><%= link_to 'Destroy', oenologist, method: :delete, data: { confirm: 'Are you sure?' } %></td>

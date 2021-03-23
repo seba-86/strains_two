@@ -3,7 +3,7 @@ class OenologistsController < ApplicationController
 
   # GET /oenologists
   def index
-    @oenologists = Oenologist.all
+    @oenologists = Oenologist.order_age
   end
 
   # GET /oenologists/1
@@ -53,6 +53,6 @@ class OenologistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def oenologist_params
-      params.require(:oenologist).permit(:name, :age, :country, works_atributtes: [:id, :writer, :viewer, :editor, :magazine_id, :oenologists_id])
+      params.require(:oenologist).permit(:name, :age, :country, magazine_ids:[], jobs_attributes: [:id, :writer, :viewer, :editor, :magazine_id, :oenologist_id, :_destroy])
     end
 end

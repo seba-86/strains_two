@@ -1,4 +1,4 @@
 class Magazine < ApplicationRecord
-    has_many :works
-    has_many :oeanologists, through: :works
+    has_many :jobs
+    has_many :oenologists, through: :jobs
 end

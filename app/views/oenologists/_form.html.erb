@@ -11,12 +11,12 @@
   </div>
 
   <h3>Work</h3>
-  <div id="works">
-    <%= f.simple_fields_for :works do |work| %>
-    <%= render 'works_fields', f, work %>
+  <div id="jobs">
+    <%= f.simple_fields_for :jobs do |job| %>
+    <%= render 'jobs_fields', f: job %>
   <%end %>
   <div class="link">
-    <%= link_to_add_association 'Add magazines and job', f, :works, partial: 'works_fields'  %>
+    <%= link_to_add_association 'Add magazines and job', f, :jobs, partial: 'jobs_fields'  %>
   </div>
   </div>
 

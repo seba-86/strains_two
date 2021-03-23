@@ -34,3 +34,8 @@ end
 end
         
     puts 'Oenologist has been created'
+
+['wines word', 'birras and wines', 'new wines', 'strains of world'].each do |name|
+    Magazine.create name: name
+end
+    puts 'Magazines has been created'

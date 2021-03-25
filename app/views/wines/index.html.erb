@@ -9,7 +9,7 @@
       <th>Strains</th>
       <th>Percentage %</th>
       <th>Note Oenologist</th>
-      <!-- <th>Oenologist Evaluation</th> -->
+      <th>Oenologist Name</th>
       
       <th colspan="3"></th>
     </tr>
@@ -40,24 +40,25 @@
         <% end %>
         </ul>
       </td>
-      <!-- <td>
+      <td>
         <ul>
-          <%# wine.evaluations.each do |evaluation| %>
-          <li><%#= evaluation.oenologist.name %></li>
-        <%# end %>
+          <% wine.evaluations.each do |evaluation| %>
+          <li><%= evaluation.oenologist.name %></li>
+        <%end %>
         </ul>
-      </td> -->
+      </td>
       <% if user_signed_in? && current_user.admin? %>
       <td><%= link_to 'Show', wine %></td>
       <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
       <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <hr>
-      <div>
-        <strong><%= link_to 'New Wine', new_wine_path %></strong>
-      </div>
       <% end %>
     </tr>
     <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+    <div>
+      <strong><%= link_to 'New Wine', new_wine_path %></strong>
+    </div>
+  <% end %>
   </tbody>
 </table>
 

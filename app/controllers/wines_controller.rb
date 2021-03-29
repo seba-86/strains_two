@@ -25,6 +25,7 @@ class WinesController < ApplicationController
 
   # POST /wines
   def create
+    if current_user.admin?
     @wine = Wine.new(wine_params)
 
     if @wine.save
@@ -32,21 +33,36 @@ class WinesController < ApplicationController
     else
       render :new
     end
+  else
+    redirect_to root_path, notice: " No puedes crear vinos #{current_user.email}"
+
+  end
   end
 
   # PATCH/PUT /wines/1
   def update
-    if @wine.update(wine_params)
-      redirect_to @wine, notice: 'Wine was successfully updated.'
-    else
-      render :edit
-    end
+    if current_user.admin?
+      if @wine.update(wine_params)
+        redirect_to @wine, notice: 'Wine was successfully updated.'
+      else
+        render :edit
+      end
+  
+  else
+    redirect_to root_path, notice: " No puedes editar vinos #{current_user.email}"
+
+  end
   end
 
   # DELETE /wines/1
   def destroy
-    @wine.destroy
-    redirect_to wines_url, notice: 'Wine was successfully destroyed.'
+    if current_user.admin?
+      @wine.destroy
+      redirect_to wines_url, notice: 'Wine was successfully destroyed.'
+  
+    else
+      redirect_to root_path, notice: " No puedes borrar vinos #{current_user.email}"
+    end
   end
 
   private
